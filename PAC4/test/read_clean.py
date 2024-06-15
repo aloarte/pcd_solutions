@@ -1,5 +1,5 @@
 import pandas as pd
-import PAC4.PAC4.read_clean.file_management_operations as fmo
+import PAC4.PAC4.read_clean.management_operations as fmo
 import PAC4.PAC4.read_clean.file_management as fm
 import unittest
 
@@ -62,6 +62,6 @@ class TestDataExpl(unittest.TestCase):
         result_df = fmo.rename_col(self.dataframe_without_long_gun_col)
         assert result_df.equals(self.dataframe_without_long_gun_col)
 
-    def test_process_file(self):
-        result_df = fm.process_file("data/test_data.csv")
+    def test_read_and_clean_file(self):
+        result_df = fm.read_and_clean_file("data/test_data.csv")
         assert result_df.equals(self.full_processed_dataframe)
