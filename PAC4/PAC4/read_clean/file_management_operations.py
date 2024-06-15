@@ -19,8 +19,8 @@ def read_csv(path: str) -> DataFrame:
 
 def clean_csv(df: DataFrame) -> DataFrame:
     """
-    This function cleans the columns 'month', 'state', 'permit', 'handgun', 'long_gun' from the dataset, returning
-    the cleaned dataframe and printing the columns before and after in order to verify the operation
+    This function cleans the rest of the columns apart from 'month', 'state', 'permit', 'handgun', 'long_gun' from the
+    dataset, returning the cleaned dataframe and printing the columns before and after in order to verify the operation
     :param df:  target dataframe to be cleaned
     :return:    cleaned dataframe
     """
@@ -39,7 +39,11 @@ def rename_col(df: DataFrame) -> DataFrame:
     :param df:  data frame to rename its columns
     :return:    renamed dataframe
     """
-    renamed_df = df.rename(columns={'long_gun': 'longgun'})
-    print(f"\nLas columnas del dataframe tras renombrar son:")
-    print(renamed_df.columns)
-    return renamed_df
+    if 'long_gun' in df.columns:
+        renamed_df = df.rename(columns={'long_gun': 'longgun'})
+        print(f"\nLas columnas del dataframe tras renombrar son:")
+        print(renamed_df.columns)
+        return renamed_df
+    else:
+        print(f"\nEl dataframe no tiene la columna long_gun. Se devuelve el dataframe tal cual fue pasado")
+        return df
