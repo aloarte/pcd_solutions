@@ -10,4 +10,6 @@ def analize_states(df: DataFrame, population_csv_path: str) -> None:
     cleaned_df = sao.clean_states(grouped_df)
     # Leo el dataframe de población indicándole que no imprima sus datos
     population_df = mo.read_csv(population_csv_path, False)
-    sao.merge_datasets(cleaned_df, population_df)
+    merged_df = sao.merge_datasets(cleaned_df, population_df)
+    merged_relative_df = sao.calculate_relative_values(merged_df)
+    sao.filter_outliers(merged_relative_df)

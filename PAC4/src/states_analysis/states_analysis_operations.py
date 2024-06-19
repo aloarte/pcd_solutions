@@ -59,3 +59,29 @@ def calculate_relative_values(df: DataFrame) -> DataFrame:
     df['longgun_perc'] = (df['longgun'] * 100) / df['pop_2014']
     df['handgun_perc'] = (df['handgun'] * 100) / df['pop_2014']
     return df
+
+
+# 5.5
+def filter_outliers(df: DataFrame) -> None:
+    """
+    Performs an analysis over the previous calculated data
+    :param df:  dataframe with the previous calculated data
+    """
+    print(f"\n5.5:")
+    std_before = round(df['permit_perc'].std(), 2)
+    permit_mean = round(df['permit_perc'].mean(), 2)
+    print(f"\n 1- La media de permisos de armas es de {permit_mean}%:")
+    print(f"\n 2- El contenido del estado de Kentucky es el siguiente:")
+    print(df[df['state'] == 'Kentucky'])
+    df.loc[df['state'] == 'Kentucky', 'permit_perc'] = permit_mean
+    print(f"\n 3- El contenido del estado de Kentucky tras modificar 'permit_perc' es el siguiente:")
+    print(df[df['state'] == 'Kentucky'])
+    permit_mean = round(df['permit_perc'].mean(), 2)
+    print(f"\n 4- La media de permisos de armas tras modificar Kentucky es de {permit_mean}%:")
+    std_after = round(df['permit_perc'].std(), 2)
+    print(f"\n 5- Se ha reducido significativamente el valor de la media. Podemos utilizar un valor como la desviación "
+          f"estándar para esa columna (antes: {std_before}, después: {std_after}) para tener más información.\n"
+          f"Con estos valores podemos ver que hay una dispersión altísima de los datos (causada por los datos de"
+          f" Kentucky)"
+          f"\nLa conclusión es que, efectivamente, un valor atípico a la alza o a la baja varía mucho el resultado de"
+          f" la media y es peligroso fiarnos solo de este valor sin analizar otros como la desviación estándar.")
