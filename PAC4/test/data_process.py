@@ -4,7 +4,7 @@ import PAC4.src.data_process.file_process as fp
 import unittest
 
 
-class TestDataExpl(unittest.TestCase):
+class TestDataProcess(unittest.TestCase):
     plain_dataframe = pd.DataFrame({
         'month': ['2020-1', '1920-10'],
         'state': ['Alabama', 'Alaska']

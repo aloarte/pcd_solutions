@@ -4,7 +4,7 @@ import PAC4.src.read_clean.file_management as fm
 import unittest
 
 
-class TestDataExpl(unittest.TestCase):
+class TestReadFile(unittest.TestCase):
     # Creo un Dataframe a través de los datos que debería leer del fichero .csv de prueba
     plain_dataframe = pd.DataFrame({
         'month': [1, 1],

@@ -4,7 +4,7 @@ import PAC4.src.data_group.group_operations as go
 import unittest
 
 
-class TestDataExpl(unittest.TestCase):
+class TestDataGroup(unittest.TestCase):
     df = pd.DataFrame({
         'state': ['Alabama', 'Alabama', 'Alaska', 'Alaska', 'Alabama', 'Alaska'],
         'year': [2020, 2020, 2020, 2021, 2021, 2021],
