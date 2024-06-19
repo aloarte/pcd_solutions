@@ -34,8 +34,28 @@ def clean_states(df: DataFrame) -> DataFrame:
 
 # 5.3
 def merge_datasets(firearm_df: DataFrame, population_df: DataFrame) -> DataFrame:
+    """
+    Merge two dataframes passed as arguments by their common value 'state'
+    :param firearm_df:      dataframe with data of firearms in the USA
+    :param population_df:   dataframe with data of population in the USA
+    :return:                merged dataframe with all the data together
+    """
     print(f"\n5.3:")
     merged_df = pd.merge(firearm_df, population_df, on='state')
     print(f"\nLas 5 primeras líneas del dataframe que mezcla los dos dataframes son:")
     print(merged_df.head())
     return merged_df
+
+
+# 5.4
+def calculate_relative_values(df: DataFrame) -> DataFrame:
+    """
+    Calculates and creates 3 new columns with the relative values between permits, longguns, handguns and the population
+    :param df:  input dataframe
+    :return:    dataframe with the 3 new columns
+    """
+    print(f"\n5.4:")
+    df['permit_perc'] = (df['permit'] * 100) / df['pop_2014']
+    df['longgun_perc'] = (df['longgun'] * 100) / df['pop_2014']
+    df['handgun_perc'] = (df['handgun'] * 100) / df['pop_2014']
+    return df

@@ -30,7 +30,7 @@ class TestDataExpl(unittest.TestCase):
     population_df = pd.DataFrame({
         'state': ['Alabama', 'Alaska'],
         'code': ['AL', 'AK'],
-        'pop_2014': [4849377, 736732]
+        'pop_2014': [1000, 400]
     })
 
     merged_df = pd.DataFrame({
@@ -39,7 +39,19 @@ class TestDataExpl(unittest.TestCase):
         'handgun': [150, 150],
         'longgun': [250, 150],
         'code': ['AL', 'AK'],
-        'pop_2014': [4849377, 736732]
+        'pop_2014': [1000, 400]
+    })
+
+    merged_with_relative_values_df = pd.DataFrame({
+        'state': ['Alabama', 'Alaska'],
+        'permit': [100, 40],
+        'handgun': [150, 150],
+        'longgun': [250, 150],
+        'code': ['AL', 'AK'],
+        'pop_2014': [1000, 400],
+        'permit_perc': [10.0, 10.0],
+        'longgun_perc': [25.0, 37.5],
+        'handgun_perc': [15.0, 37.5],
     })
 
     def test_groupby_state(self):
@@ -54,3 +66,7 @@ class TestDataExpl(unittest.TestCase):
     def test_merge_datasets(self):
         result_df = sao.merge_datasets(self.states_cleaned_dataframe, self.population_df)
         assert result_df.equals(self.merged_df)
+
+    def test_calculate_relative_values(self):
+        result_df = sao.calculate_relative_values(self.merged_df)
+        assert result_df.equals(self.merged_with_relative_values_df)
