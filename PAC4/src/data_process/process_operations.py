@@ -1,6 +1,7 @@
 from pandas import DataFrame
 
 
+# 2.1
 def breakdown_date(df: DataFrame) -> DataFrame:
     """
     Splits the column 'month' from the original dataframe into 2 new columns 'year' and 'day'
@@ -14,6 +15,7 @@ def breakdown_date(df: DataFrame) -> DataFrame:
     return df
 
 
+# 2.2
 def erase_month(df: DataFrame) -> DataFrame:
     """
     Removes the column 'month' from the dataframe

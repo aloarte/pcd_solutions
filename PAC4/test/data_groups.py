@@ -1,6 +1,6 @@
 import pandas as pd
-import PAC4.PAC4.data_group.file_group as fg
-import PAC4.PAC4.data_group.group_operations as go
+import PAC4.src.data_group.file_group as fg
+import PAC4.src.data_group.group_operations as go
 import unittest
 
 

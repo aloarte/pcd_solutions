@@ -2,6 +2,7 @@ import pandas as pd
 from pandas import DataFrame
 
 
+# 1.1
 def read_csv(path: str) -> DataFrame:
     """
     This function reads a csv file and prints the first 5 lines of the file and its structure.
@@ -17,6 +18,7 @@ def read_csv(path: str) -> DataFrame:
     return df
 
 
+# 1.2
 def clean_csv(df: DataFrame) -> DataFrame:
     """
     This function cleans the rest of the columns apart from 'month', 'state', 'permit', 'handgun', 'long_gun' from the
@@ -33,6 +35,7 @@ def clean_csv(df: DataFrame) -> DataFrame:
     return cleaned_df
 
 
+# 1.3
 def rename_col(df: DataFrame) -> DataFrame:
     """
     This function renames the column 'long_gun' to 'longgun'

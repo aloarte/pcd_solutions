@@ -1,6 +1,7 @@
 from pandas import DataFrame
 
 
+# 3.1
 def groupby_state_and_year(df: DataFrame) -> DataFrame:
     """
     Group the dataframe by state and year, returning the grouped dataframe
@@ -15,6 +16,7 @@ def groupby_state_and_year(df: DataFrame) -> DataFrame:
     return df.groupby(['year', 'state']).sum().reset_index()
 
 
+# 3.2
 def print_biggest_handguns(grouped_df: DataFrame) -> None:
     """
     Print the year and state of the biggest handguns registered. It throws an error if the columns can't be found.
@@ -32,6 +34,7 @@ def print_biggest_handguns(grouped_df: DataFrame) -> None:
         f"{max_handguns_row['state']}")
 
 
+# 3.3
 def print_biggest_longguns(grouped_df: DataFrame) -> None:
     """
         Print the year and state of the biggest longguns registered. It throws an error if the columns can't be found.

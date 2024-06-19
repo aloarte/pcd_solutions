@@ -3,6 +3,7 @@ import matplotlib.ticker as ticker
 from pandas import DataFrame
 
 
+# 4.1
 def time_evolution(df: DataFrame) -> None:
     """
     Group and graphic the data aggregating the 'permit', 'handgun' and 'longgun' by year.
@@ -33,6 +34,7 @@ def time_evolution(df: DataFrame) -> None:
     plt.show()
 
 
+# 4.2
 def temporal_text_analysis() -> None:
     """
     Writes a note about the temporal analysis of the dataframe

@@ -1,6 +1,6 @@
 import pandas as pd
-import PAC4.PAC4.read_clean.management_operations as fmo
-import PAC4.PAC4.read_clean.file_management as fm
+import PAC4.src.read_clean.management_operations as fmo
+import PAC4.src.read_clean.file_management as fm
 import unittest
 
 
