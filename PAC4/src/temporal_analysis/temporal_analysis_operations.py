@@ -9,6 +9,7 @@ def time_evolution(df: DataFrame) -> None:
     Group and graphic the data aggregating the 'permit', 'handgun' and 'longgun' by year.
     :param df:  dataframe with the input data
     """
+    print(f"\n4.1:")
     # Primero agrupo por año como se pide en el enunciado y hago una agregación (suma) de las columnas
     # pedidas en el enunciado para que al agrupar por año tenga el total de estos valores
     grouped_df = df.groupby('year').sum()[['permit', 'handgun', 'longgun']]
@@ -39,6 +40,7 @@ def temporal_text_analysis() -> None:
     """
     Writes a note about the temporal analysis of the dataframe
     """
+    print(f"\n4.2:\n")
     print(F"Si observamos el gráfico lo primero que vemos es que la posesión de armas de rifle largo (long guns)"
           F"se ha mantenido más constante en el tiempo que la posesión de armas de rifle corto (short guns), teniendo"
           F"las armas de rifle largo un crecimiento entre los años 2012 y 2013 y otro repunte entre 2019 y 2020.\n"

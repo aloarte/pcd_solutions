@@ -27,6 +27,21 @@ class TestDataExpl(unittest.TestCase):
         'longgun': [250, 150]
     })
 
+    population_df = pd.DataFrame({
+        'state': ['Alabama', 'Alaska'],
+        'code': ['AL', 'AK'],
+        'pop_2014': [4849377, 736732]
+    })
+
+    merged_df = pd.DataFrame({
+        'state': ['Alabama', 'Alaska'],
+        'permit': [100, 40],
+        'handgun': [150, 150],
+        'longgun': [250, 150],
+        'code': ['AL', 'AK'],
+        'pop_2014': [4849377, 736732]
+    })
+
     def test_groupby_state(self):
         result_df = sao.groupby_state(self.year_state_grouped_dataframe)
         # Para poder evaluar que el contenido del dataframe es el mismo tenemos que usar la operación .equals de pandas
@@ -35,3 +50,7 @@ class TestDataExpl(unittest.TestCase):
     def test_clean_states(self):
         result_df = sao.clean_states(self.state_grouped_dataframe)
         assert result_df.equals(self.states_cleaned_dataframe)
+
+    def test_merge_datasets(self):
+        result_df = sao.merge_datasets(self.states_cleaned_dataframe, self.population_df)
+        assert result_df.equals(self.merged_df)

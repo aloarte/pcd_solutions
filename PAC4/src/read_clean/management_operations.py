@@ -3,18 +3,22 @@ from pandas import DataFrame
 
 
 # 1.1
-def read_csv(path: str) -> DataFrame:
+def read_csv(path: str, print_data: bool = True) -> DataFrame:
     """
     This function reads a csv file and prints the first 5 lines of the file and its structure.
-    :param path: path to the csv file
-    :return:    pandas dataframe with the data from the csv file
+    :param print_data:  indicates if the data from the csv read is to be printed or not
+    :param path:        path to the csv file
+    :return:            pandas dataframe with the data from the csv file
     """
     df = pd.read_csv(path)
-    # 5 es el número por defecto de head()
-    print(f"Las 5 primeras líneas del dataframe leído de la ubicación {path} son:")
-    print(df.head())
-    print(f"\nSu estructura es la siguiente:")
-    print(df.info())
+    # Como se usa para posteriores ejercicios donde no se ha pedido imprimir los datos, uso un flag para no hacerlo
+    if print_data:
+        # 5 es el número por defecto de head()
+        print(f"\n1.1:")
+        print(f"\n Las 5 primeras líneas del dataframe leído de la ubicación {path} son:")
+        print(df.head())
+        print(f"\nSu estructura es la siguiente:")
+        print(df.info())
     return df
 
 
@@ -26,6 +30,7 @@ def clean_csv(df: DataFrame) -> DataFrame:
     :param df:  target dataframe to be cleaned
     :return:    cleaned dataframe
     """
+    print(f"\n1.2:")
     print(f"\nLas columnas antes de limpiar el dataframe son:")
     print(df.columns)
     columns_to_keep = ['month', 'state', 'permit', 'handgun', 'long_gun']
@@ -42,6 +47,7 @@ def rename_col(df: DataFrame) -> DataFrame:
     :param df:  data frame to rename its columns
     :return:    renamed dataframe
     """
+    print(f"\n1.3:")
     if 'long_gun' in df.columns:
         renamed_df = df.rename(columns={'long_gun': 'longgun'})
         print(f"\nLas columnas del dataframe tras renombrar son:")

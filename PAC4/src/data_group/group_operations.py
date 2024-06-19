@@ -8,6 +8,7 @@ def groupby_state_and_year(df: DataFrame) -> DataFrame:
     :param df:  input dataframe to be grouped
     :return:    grouped dataframe
     """
+    print(f"\n3.1:")
     # si llega un dataframe que no tenga las columnas 'state' y 'year' devuelvo un error
     if 'state' not in df.columns or 'year' not in df.columns:
         raise ValueError("The Dataframe must contains the columns 'state' and 'year'")
@@ -22,6 +23,7 @@ def print_biggest_handguns(grouped_df: DataFrame) -> None:
     Print the year and state of the biggest handguns registered. It throws an error if the columns can't be found.
     :param grouped_df:  input dataframe
     """
+    print(f"\n3.2:")
     # Compruebo que tenga las columnas con las que se va a operar
     if 'state' not in grouped_df.columns or 'year' not in grouped_df.columns or 'handgun' not in grouped_df.columns:
         raise ValueError("The Dataframe must contains the columns 'state', 'year' and 'handgun'")
@@ -40,6 +42,7 @@ def print_biggest_longguns(grouped_df: DataFrame) -> None:
         Print the year and state of the biggest longguns registered. It throws an error if the columns can't be found.
         :param grouped_df:  input dataframe
         """
+    print(f"\n3.3:")
     # Compruebo que tenga las columnas con las que se va a operar
     if 'state' not in grouped_df.columns or 'year' not in grouped_df.columns or 'longgun' not in grouped_df.columns:
         raise ValueError("The Dataframe must contains the columns 'state', 'year' and 'longgun'")
