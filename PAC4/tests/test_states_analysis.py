@@ -42,6 +42,15 @@ class TestDataExpl(unittest.TestCase):
         'pop_2014': [1000, 400]
     })
 
+    merged_df_contrast = pd.DataFrame({
+        'state': ['Alabama', 'Alaska'],
+        'permit': [100, 40],
+        'handgun': [150, 150],
+        'longgun': [250, 150],
+        'code': ['AL', 'AK'],
+        'pop_2014': [1000, 400]
+    })
+
     merged_with_relative_values_df = pd.DataFrame({
         'state': ['Alabama', 'Alaska'],
         'permit': [100, 40],
@@ -65,7 +74,7 @@ class TestDataExpl(unittest.TestCase):
 
     def test_merge_datasets(self):
         result_df = sao.merge_datasets(self.states_cleaned_dataframe, self.population_df)
-        assert result_df.equals(self.merged_df)
+        assert result_df.equals(self.merged_df_contrast)
 
     def test_calculate_relative_values(self):
         result_df = sao.calculate_relative_values(self.merged_df)

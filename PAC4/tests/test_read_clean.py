@@ -46,7 +46,7 @@ class TestReadFile(unittest.TestCase):
     })
 
     def test_read_csv(self):
-        result_df = fmo.read_csv("data/test_data.csv")
+        result_df = fmo.read_csv("PAC4/tests/data/test_data.csv")
         # Para poder evaluar que el contenido del dataframe es el mismo tenemos que usar la operación .equals de pandas
         assert result_df.equals(self.plain_dataframe)
 
@@ -63,5 +63,5 @@ class TestReadFile(unittest.TestCase):
         assert result_df.equals(self.dataframe_without_long_gun_col)
 
     def test_read_and_clean_file(self):
-        result_df = fm.read_and_clean_file("data/test_data.csv")
+        result_df = fm.read_and_clean_file("PAC4/tests/data/test_data.csv")
         assert result_df.equals(self.full_processed_dataframe)
