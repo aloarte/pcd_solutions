@@ -1,4 +1,4 @@
-from ..maps import maps_generator_operations as m
+from . import maps_generator_operations as mgo
 from pandas import DataFrame
 import os
 
@@ -14,4 +14,4 @@ def prepare_and_create_maps(firearms_df: DataFrame) -> None:
     if not os.path.exists("../generated"):
         os.makedirs("../generated")
     # Creo los mapas
-    m.create_maps(state_geo, firearms_df)
+    mgo.create_maps(state_geo, firearms_df)
