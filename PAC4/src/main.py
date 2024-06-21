@@ -3,6 +3,8 @@ import PAC4.src.data_process.file_process as fp
 import PAC4.src.data_group.file_group as fg
 import PAC4.src.temporal_analysis.file_temporal_analysis as fta
 import PAC4.src.states_analysis.states_analysis as sa
+import PAC4.src.maps.maps_generator as mg
+
 import pandas as pd
 
 local_firearm_csv = "../Data/nics-firearm-background-checks.csv"
@@ -16,4 +18,5 @@ pd.set_option('display.max_columns', None)
 df = fp.process_file(df)
 grouped_df = fg.group_file(df)
 fta.temporal_analysis(df)
-sa.analize_states(grouped_df, local_population_csv)
+perc_df = sa.analyze_states(grouped_df, local_population_csv)
+mg.prepare_and_create_maps(perc_df)

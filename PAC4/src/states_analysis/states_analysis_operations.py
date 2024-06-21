@@ -62,7 +62,7 @@ def calculate_relative_values(df: DataFrame) -> DataFrame:
 
 
 # 5.5
-def filter_outliers(df: DataFrame) -> None:
+def filter_outliers(df: DataFrame) -> DataFrame:
     """
     Performs an analysis over the previous calculated data
     :param df:  dataframe with the previous calculated data
@@ -85,3 +85,5 @@ def filter_outliers(df: DataFrame) -> None:
           f" Kentucky)"
           f"\nLa conclusión es que, efectivamente, un valor atípico a la alza o a la baja varía mucho el resultado de"
           f" la media y es peligroso fiarnos solo de este valor sin analizar otros como la desviación estándar.")
+    # Devuelvo el dataframe habiendo eliminado el valor atípico para ejercicios posteriores
+    return df
